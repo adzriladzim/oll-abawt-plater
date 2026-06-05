@@ -57,10 +57,10 @@ class MovieCatalogPage extends StatelessWidget {
       formatType: '2D',
     ),
     Movie(
-      title: 'Children Of Heaven',
-      categoryMovie: 'Family, Drama',
-      imageUrl: 'https://nos.jkt-1.neo.id/media.cinema21.co.id/movie-images/16COHN.jpg',
-      ageRating: 'SU',
+      title: 'Badut Gendong',
+      categoryMovie: 'Action, Horror',
+      imageUrl: 'https://nos.jkt-1.neo.id/media.cinema21.co.id/movie-images/16BGEG.jpg',
+      ageRating: 'D17',
       formatType: '2D',
     ),
   ];
@@ -82,9 +82,11 @@ class MovieCatalogPage extends StatelessWidget {
         iconTheme: const IconThemeData(color: Color(0xFF1E293B)),
         centerTitle: true,
       ),
-      body: ListView(
+      body: ListView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        children: movies.map((movie) {
+        itemCount: movies.length,
+        itemBuilder: (context, index) {
+          final movie = movies[index];
           return Container(
             margin: const EdgeInsets.only(bottom: 16),
             padding: const EdgeInsets.all(12),
@@ -227,7 +229,7 @@ class MovieCatalogPage extends StatelessWidget {
               ],
             ),
           );
-        }).toList(),
+        },
       ),
     );
   }
